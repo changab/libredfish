@@ -7,6 +7,7 @@
 
 #include "redfishPayload.h"
 
+#include <stdlib.h>
 static redfishPayload* getOpResult(redfishPayload* payload, const char* propName, const char* op, const char* value);
 static redfishPayload* collectionEvalOp(redfishPayload* payload, const char* propName, const char* op, const char* value);
 static redfishPayload* arrayEvalOp(redfishPayload* payload, const char* propName, const char* op, const char* value);

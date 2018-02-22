@@ -1,0 +1,61 @@
+## @file
+#  Json Parser Library.
+#  
+# Copyright (c) 2017 Intel Corporation. All rights reserved
+# 
+# This software and associated documentation (if any) is furnished
+# under a license and may only be used or copied in accordance
+# with the terms of the license. Except as permitted by such
+# license, no part of this software or documentation may be
+# reproduced, stored in a retrieval system, or transmitted in any
+# form or by any means without the express written consent of
+# Intel Corporation.
+#
+##
+
+
+[Defines]
+  INF_VERSION                    = 0x00010006
+  BASE_NAME                      = EfiLibRedfish
+  FILE_GUID                      = F491F629-063D-4D55-8CE2-E55CBA7E3060 
+  MODULE_TYPE                    = BASE
+  VERSION_STRING                 = 1.0
+  LIBRARY_CLASS                  = EfiLibRedfish | DXE_DRIVER UEFI_APPLICATION UEFI_DRIVER
+#
+# The following information is for reference only and not required by the build tools.
+#
+#  VALID_ARCHITECTURES           = IA32 X64 IPF EBC
+#
+
+[Sources]
+  ../../src/payload.c
+  ../../src/redpath.c
+  redfishService.h
+  service.c
+ 
+[Packages]
+  MdePkg/MdePkg.dec
+  MdeModulePkg/MdeModulePkg.dec
+  HpServerPkg/HpServerPkg.dec 
+  RedfishPocPkg/RedfishPocPkg.dec
+  StdLib/StdLib.dec
+
+[LibraryClasses]
+  BaseLib
+  DebugLib
+  MemoryAllocationLib
+  BaseMemoryLib
+  JanssonLib
+  #
+  # Add your own C lib
+  #
+
+[Protocols]
+
+[BuildOptions]
+  #
+  # Disables the following Visual Studio compiler warnings brought by openssl source,
+  #   C4389: 'operator' : signed/unsigned mismatch (xxxx)
+  #
+  MSFT:*_*_IA32_CC_FLAGS   = /DNO_CZMQ /I$(WORKSPACE)\RedfishPocPkg\Library\libredfish\bindings\uefi
+  MSFT:*_*_X64_CC_FLAGS    = /DNO_CZMQ /I$(WORKSPACE)\RedfishPocPkg\Library\libredfish\bindings\uefi
