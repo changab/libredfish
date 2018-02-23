@@ -57,5 +57,5 @@
   # Disables the following Visual Studio compiler warnings brought by openssl source,
   #   C4389: 'operator' : signed/unsigned mismatch (xxxx)
   #
-  MSFT:*_*_IA32_CC_FLAGS   = /DNO_CZMQ /I$(WORKSPACE)\RedfishPocPkg\Library\libredfish\bindings\uefi
-  MSFT:*_*_X64_CC_FLAGS    = /DNO_CZMQ /I$(WORKSPACE)\RedfishPocPkg\Library\libredfish\bindings\uefi
+  MSFT:*_*_IA32_CC_FLAGS   = /DNO_CZMQ /I$(WORKSPACE)\YourPackageName\Library\libredfish\bindings\uefi # Change YourPackageName to your EDK2 package
+  MSFT:*_*_X64_CC_FLAGS    = /DNO_CZMQ /I$(WORKSPACE)\YourPackageName\Library\libredfish\bindings\uefi # Change YourPackageName to your EDK2 package
