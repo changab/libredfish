@@ -13,6 +13,8 @@ libRedfish is based on C and the compiling system is required to have:
 * C Compiler
 * libjanson - http://www.digip.org/jansson/
 * libcurl - https://curl.haxx.se/libcurl/
+* For EFI binding, refer to README.md under binding/uefi/
+
 To receive events a user needs an existing webserver supporting FastCGI (such as Apache or nginx) and libczmq (https://github.com/zeromq/czmq).
 
 ## Compilation
